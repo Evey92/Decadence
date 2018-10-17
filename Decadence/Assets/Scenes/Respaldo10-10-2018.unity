@@ -16738,6 +16738,21 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 32818263}
+    - target: {fileID: 114929087657612554, guid: 8a31f4cc3a1c5584f87665e36ef29fec,
+        type: 2}
+      propertyPath: offsetX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114929087657612554, guid: 8a31f4cc3a1c5584f87665e36ef29fec,
+        type: 2}
+      propertyPath: offsetZ
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114929087657612554, guid: 8a31f4cc3a1c5584f87665e36ef29fec,
+        type: 2}
+      propertyPath: offsetY
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a31f4cc3a1c5584f87665e36ef29fec, type: 2}
   m_IsPrefabAsset: 0
