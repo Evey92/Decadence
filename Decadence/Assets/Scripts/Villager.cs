@@ -36,11 +36,10 @@ public class Villager : MonoBehaviour
 
   void Update()
   {
+    Debug.Log(state_.ToString());
     state_.update(this, Time.deltaTime);
-    if (running)
-    {
-      if ((Vector3.zero - transform.position).magnitude <= 5.0f)
-      {
+    if (running) {
+      if ((Vector3.zero - transform.position).magnitude <= 5.0f) {
         transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, targetRotation, Time.deltaTime * directionChangeInterval);
         var forward = transform.TransformDirection(Vector3.forward);
         controller.SimpleMove(forward * speed);
@@ -53,6 +52,20 @@ public class Villager : MonoBehaviour
         transform.eulerAngles = new Vector3(0, heading, 0);
       }
     }
+  }
+
+  private void OnTriggerEnter(Collider other)
+  {
+    if(other.tag=="Spectre") {
+      state_ = new RunningState(other.gameObject);
+      running = false;
+    Debug.Log("Spectre, ah!");
+    }
+  }
+
+  private void OnTriggerExit(Collider other)
+  {
+    
   }
 
   public void run()
