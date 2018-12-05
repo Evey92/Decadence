@@ -306,24 +306,24 @@ public class CharControl : MonoBehaviour
   //    }
   //}
 
-  void CheckPanel(GameObject gameObj)
-  {
-    if (gameObj.tag == "Pickable")
-      m_pickPanel.SetActive(true);
-    else if (gameObj.tag == "Grabable")
-      m_dragPanel.SetActive(true);
+  //void CheckPanel(GameObject gameObj)
+  //{
+  //  if (gameObj.tag == "Pickable")
+  //    m_pickPanel.SetActive(true);
+  //  else if (gameObj.tag == "Grabable")
+  //    m_dragPanel.SetActive(true);
 
 
-  }
-  void CheckPanelDeactivate(GameObject gameObj)
-  {
-    if (gameObj.tag == "Pickable")
-      m_pickPanel.SetActive(false);
-    else if (gameObj.tag == "Grabable")
-      m_dragPanel.SetActive(false);
+  //}
+  //void CheckPanelDeactivate(GameObject gameObj)
+  //{
+  //  if (gameObj.tag == "Pickable")
+  //    m_pickPanel.SetActive(false);
+  //  else if (gameObj.tag == "Grabable")
+  //    m_dragPanel.SetActive(false);
 
 
-  }
+  //}
   /// <summary>
   /// Collisions 
   /// </summary>
@@ -383,7 +383,7 @@ public class CharControl : MonoBehaviour
     {
       onRange = true;
       m_interactObject = other.gameObject;
-      CheckPanel(m_interactObject);
+      //CheckPanel(m_interactObject);
     }
   }
   private void OnTriggerExit(Collider other)
@@ -392,7 +392,7 @@ public class CharControl : MonoBehaviour
     {
       onRange = false;
       m_interactObject = null;
-      CheckPanelDeactivate(other.gameObject);
+      //CheckPanelDeactivate(other.gameObject);
 
     }
 

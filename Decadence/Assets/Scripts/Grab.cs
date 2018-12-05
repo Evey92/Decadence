@@ -68,7 +68,7 @@ public class Grab : MonoBehaviour {
                 case "Pickable":
                     {
                         //Generating vector to make the dot product
-                        Vector3 frontPoint = transform.position + (transform.forward * 2.0f);
+                        Vector3 frontPoint = transform.position + (transform.forward * 4.0f);
                         Vector3 front = frontPoint - transform.position;
                         //Generated the vector for the dot product
 

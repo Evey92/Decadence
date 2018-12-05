@@ -10,6 +10,7 @@ public class Interact : MonoBehaviour {
     public GameObject m_GOFloatingKeyText;
     public GameObject m_GODoorText;
     public GameObject m_GOHand;
+    public GameObject front;
     IneractableObject m_objectScript;
     float biItem= 5, smallItem = 2;
     CharControl m_playerScript;
@@ -43,6 +44,7 @@ public class Interact : MonoBehaviour {
         //Vector3 front = frontPoint - transform.position;
         if (!m_isHolding)
         {
+            if (m_GOInteractedObject)
             switch (m_GOInteractedObject.tag)
             {
                 case "Pickable":
@@ -81,20 +83,23 @@ public class Interact : MonoBehaviour {
                     break;
                 case "Grabable":
                     {
-                        Vector3 frontPoint = transform.position + transform.forward * biItem;
+                        
                         m_isHolding = true;
                         m_isGrabbing = true;
                         m_GOcarryingObject = m_GOInteractedObject;
+                        Vector3 frontPoint = new Vector3(front.transform.position.x, m_GOcarryingObject.transform.position.y, front.transform.position.z);
                         m_carryingObjectRB = m_GOcarryingObject.GetComponent<Rigidbody>();
-                        transform.LookAt(m_GOcarryingObject.transform);
+                        //transform.LookAt(m_GOcarryingObject.transform);
 
-                        m_GOcarryingObject.transform.SetParent(transform);
-                        //m_GOcarryingObject.transform.position = frontPoint;
+                       
+                        m_GOcarryingObject.transform.position = frontPoint;
                         m_carryingObjectRB.freezeRotation = true;
                         m_carryingObjectRB.constraints = RigidbodyConstraints.FreezePosition;
                         m_carryingObjectRB.useGravity = false;
                         m_playerScript.movState = CharControl.PLAYER_STATE.GRABING;
-                    }
+                        m_GOcarryingObject.transform.SetParent(transform);
+                        Debug.Log("Im grabbing bb");
+          }
                     break;
                 case "Door":
                     {
